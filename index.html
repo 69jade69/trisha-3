@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronic Kidney Disease Awareness</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #800020;
+            --primary-light: #9a2540;
+            --accent: #e6c229;
+            --dark: #2c1920;
+            --light: #fff9fa;
+            --text: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--light);
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(128, 0, 32, 0.85), rgba(128, 0, 32, 0.85)), 
+                        url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d25b7aa2-dd0e-4c3a-9646-2784f2447fa3.png') center/cover no-repeat;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 68px;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--dark);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .about-content {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .features {
+            background-color: #f9f0f2;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .stats {
+            background: linear-gradient(rgba(128, 0, 32, 0.9), rgba(128, 0, 32, 0.9)), 
+                        url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d5ab8294-0cd6-43d4-9eea-ed48c5aba102.png') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .stats h2 {
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-item h3 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .prevention .content-box {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .prevention ol {
+            padding-left: 1.5rem;
+        }
+        
+        .prevention li {
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">KidneyCare</a>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About CKD</a></li>
+                        <li><a href="#symptoms">Symptoms</a></li>
+                        <li><a href="#prevention">Prevention</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Understanding Chronic Kidney Disease</h1>
+            <p>Learn about the causes, symptoms, and prevention of CKD to protect your kidney health.</p>
+            <a href="#about" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Chronic Kidney Disease</h2>
+                <p>CKD affects millions worldwide – early detection can save lives</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Chronic Kidney Disease (CKD) is a progressive condition in which the kidneys lose their ability to filter waste and excess fluids from the blood. This can lead to dangerous levels of fluid, electrolytes and waste in the body.</p>
+                    <p>When kidney function declines to a certain point, dialysis or a kidney transplant becomes necessary for survival. Early detection and proper management can help slow disease progression and prevent complications.</p>
+                    <p>The disease often develops gradually and may not produce noticeable symptoms until significant damage has occurred. This makes regular screenings important for those at risk.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5f56f75b-421c-4e6b-be01-0a01e1aee52b.png" alt="Illustration showing healthy kidney vs diseased kidney with medical diagram annotations" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="types" class="types">
+        <div class="container">
+            <div class="section-title">
+                <h2>Types of Kidney Disease</h2>
+            </div>
+            <ul>
+                <li><strong>Chronic Kidney Disease (CKD):</strong> Long-term loss of kidney function, often caused by diabetes or high blood pressure.</li>
+                <li><strong>Acute Kidney Injury (AKI):</strong> Sudden decline in kidney function, often due to dehydration, infection, or medications.</li>
+                <li><strong>Polycystic Kidney Disease (PKD):</strong> A genetic disorder that causes fluid-filled cysts to grow in the kidneys.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="how-kidneys-work" class="how-kidneys-work">
+        <div class="container">
+            <div class="section-title">
+                <h2>How Kidneys Work</h2>
+            </div>
+            <p>Your kidneys filter waste and excess fluids from your blood, help regulate blood pressure, produce hormones, and maintain electrolyte balance.</p>
+        </div>
+    </section>
+
+    <section id="symptoms" class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Symptoms of Kidney Disease</h2>
+                <p>Kidney disease often develops without noticeable symptoms. As it progresses, you may experience:</p>
+            </div>
+            <ul>
+                <li>Fatigue and weakness</li>
+                <li>Swelling in the legs, ankles, or feet (edema)</li>
+                <li>Difficulty concentrating</li>
+                <li>Decreased appetite</li>
+                <li>Nausea and vomiting</li>
+                <li>Changes in urination (frequency, color, or foaming)</li>
+                <li>Shortness of breath</li>
+                <li>High blood pressure that is difficult to control</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="diagnosis" class="diagnosis">
+        <div class="container">
+            <div class="section-title">
+                <h2>Diagnosis</h2>
+            </div>
+            <p>To diagnose kidney disease, healthcare providers use:</p>
+            <h3>Blood Tests:</h3>
+            <ul>
+                <li><strong>Serum Creatinine:</strong> Measures waste levels in the blood.</li>
+                <li><strong>Estimated Glomerular Filtration Rate (eGFR):</strong> Indicates how well the kidneys are filtering.</li>
+            </ul>
+            <h3>Urine Tests:</h3>
+            <ul>
+                <li><strong>Urinalysis:</strong> Detects protein, blood, and other abnormalities.</li>
+                <li><strong>Albumin-to-Creatinine Ratio (ACR):</strong> Measures protein leakage in urine.</li>
+            </ul>
+            <h3>Imaging & Biopsy:</h3>
+            <ul>
+                <li>Ultrasound or CT scans to view kidney structure.</li>
+                <li>Kidney biopsy may be used to determine the cause of kidney damage.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="treatment" class="treatment">
+        <div class="container">
+            <div class="section-title">
+                <h2>Treatment Options</h2>
+            </div>
+            <p>Treatment depends on the stage and cause of kidney disease.</p>
+            <h3>Lifestyle Changes:</h3>
+            <ul>
+                <li>Low-sodium, kidney-friendly diet</li>
+                <li>Regular physical activity</li>
+                <li>Quitting smoking</li>
+                <li>Controlling blood sugar and blood pressure</li>
+            </ul>
+            <h3>Medications:</h3>
+            <ul>
+                <li>Blood pressure medications (e.g., ACE inhibitors, ARBs)</li>
+                <li>Diuretics for swelling</li>
+                <li>Medications to control cholesterol or anemia</li>
+            </ul>
+            <h3>Advanced Treatments:</h3>
+            <ul>
+                <li>Dialysis: A procedure that filters waste from the blood when kidneys can’t.</li>
+                <li>Kidney Transplant: A surgical procedure to replace a damaged kidney with a healthy one from a donor.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="diet-lifestyle" class="diet-lifestyle">
+        <div class="container">
+            <div class="section-title">
+                <h2>Diet & Lifestyle</h2>
+            </div>
+            <p>Managing your diet is essential to slow kidney disease progression.</p>
+            <h3>Kidney-Friendly Diet Tips:</h3>
+            <ul>
+                <li>Limit sodium (salt) to control blood pressure</li>
+                <li>Watch potassium and phosphorus intake</li>
+                <li>Choose lean proteins in moderation</li>
+                <li>Stay hydrated, but avoid excessive fluids if advised</li>
+            </ul>
+            <h3>Healthy Habits:</h3>
+            <ul>
+                <li>Exercise regularly</li>
+                <li>Avoid NSAIDs and over-the-counter medications without doctor’s advice</li>
+                <li>Manage stress with relaxation techniques</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="prevention" class="prevention">
+        <div class="container">
+            <div class="section-title">
+                <h2>Prevention</h2>
+            </div>
+            <p>You can reduce your risk of kidney disease by:</p>
+            <ul>
+                <li>Controlling high blood pressure and diabetes</li>
+                <li>Avoiding excessive use of painkillers</li>
+                <li>Staying hydrated</li>
+                <li>Eating a balanced, low-sodium diet</li>
+                <li>Quitting smoking</li>
+                <li>Getting regular check-ups, especially if you have risk factors</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="living-with-kidney-disease" class="living-with-kidney-disease">
+        <div class="container">
+            <div class="section-title">
+                <h2>Living with Kidney Disease</h2>
+            </div>
+            <p>Kidney disease can affect your lifestyle, but with the right care, many people lead full, active lives.</p>
+            <h3>Coping Strategies:</h3>
+            <ul>
+                <li>Join a support group</li>
+                <li>Work with a renal dietitian</li>
+                <li>Stay informed about your condition</li>
+                <li>Plan ahead for treatments like dialysis or transplant if needed</li>
+            </ul>
+            <h3>Practical Tips:</h3>
+            <ul>
+                <li>Communicate openly with your healthcare team</li>
+                <li>Monitor symptoms and blood pressure at home</li>
+                <li>Keep a list of medications and medical appointments</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <h3>KidneyCare</h3>
+            <p>Dedicated to increasing awareness and early detection of Chronic Kidney Disease</p>
+            <p>
+                Contact us: <a href="mailto:trishamaedulla05@gmail.com" style="color: var(--accent);">trishamaedulla05@gmail.com</a>
+            </p>
+            <p>© 2023 KidneyCare Awareness Initiative. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
